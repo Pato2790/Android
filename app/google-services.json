@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "668625905944",
+    "firebase_url": "https://project-4704954678966181192.firebaseio.com",
+    "project_id": "project-4704954678966181192",
+    "storage_bucket": "project-4704954678966181192.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668625905944:android:1759c2a4af28c23a",
+        "android_client_info": {
+          "package_name": "com.example.pato.tacheando"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "668625905944-1mvpi5q9sh3tq649bhaq48tomb2n7upe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1dV0C9D4r0B90f-kEmqJfe8WXq1JdbUo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
