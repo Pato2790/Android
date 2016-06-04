@@ -1,0 +1,24 @@
+{
+  "Viaje" : {
+    "1" : {
+      "Destino" : {
+        "LatDestino" : 0,
+        "LongDestino" : 0
+      },
+      "FechaViaje" : "03-06-2016",
+      "LlegoDestino" : "No",
+      "Origen" : {
+        "LatOrigen" : 0,
+        "LongOrigen" : 0
+      },
+      "Usuario" : {
+        "Usuario1" : "Fede",
+        "Usuario2" : "Mati",
+        "Usuario3" : "Pato",
+        "UsuarioCreador" : "Tito"
+      },
+      "UsuarioCreador" : "Tito"
+    },
+    ".priority" : "algo"
+  }
+}
