@@ -1,2 +1,2 @@
-CHANGED,C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
-CHANGED,C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\example\pato\tacheando\Main$override.class
+CHANGED,E:\Android\Projects\Tacheando\Android\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
+CHANGED,E:\Android\Projects\Tacheando\Android\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\example\pato\tacheando\LoginActivity$override.class
