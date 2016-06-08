@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fagment_lista_viajes.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\src\\main\\res\\layout\\fagment_lista_viajes.xml"
+    },
+    {
         "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
         "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_template_big_media.xml"
     },
@@ -24,6 +28,14 @@
         "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\itemviaje.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\src\\main\\res\\layout\\itemviaje.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_item_powered_by_google.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\9.0.2\\res\\layout\\place_autocomplete_item_powered_by_google.xml"
+    },
+    {
         "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
         "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\notification_media_cancel_action.xml"
     },
@@ -34,6 +46,18 @@
     {
         "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
         "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_busqueda.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\src\\main\\res\\layout\\fragment_busqueda.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_item_prediction.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\9.0.2\\res\\layout\\place_autocomplete_item_prediction.xml"
     },
     {
         "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
@@ -66,6 +90,14 @@
     {
         "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_progress.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\9.0.2\\res\\layout\\place_autocomplete_progress.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\src\\main\\res\\layout\\activity_base.xml"
     },
     {
         "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
@@ -138,6 +170,10 @@
     {
         "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_fragment.xml",
+        "source": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-location\\9.0.2\\res\\layout\\place_autocomplete_fragment.xml"
     },
     {
         "merged": "C:\\Users\\Pato\\AndroidStudioProjects\\Tacheando\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",

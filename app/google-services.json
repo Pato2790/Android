@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "668625905944-694jev62d767n649q51mrggvdmtu151t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pato.tacheando",
+            "certificate_hash": "5119A1A1CDE062A435C4ADF5C35578BDF411A2CA"
+          }
+        },
+        {
+          "client_id": "668625905944-soes6ch1ekhjauhl46skfmlptrf7b2rg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pato.tacheando",
+            "certificate_hash": "64491DC40061BB33A9EB274E2C33267B5C2F5CF2"
+          }
+        },
+        {
           "client_id": "668625905944-1mvpi5q9sh3tq649bhaq48tomb2n7upe.apps.googleusercontent.com",
           "client_type": 3
         }
