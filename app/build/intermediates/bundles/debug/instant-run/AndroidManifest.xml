@@ -44,6 +44,7 @@
         </activity>
         <activity android:name="com.example.pato.tacheando.Main" />
         <activity android:name="com.example.pato.tacheando.BaseActivity" />
+        <activity android:name="com.example.pato.tacheando.ShowViaje" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

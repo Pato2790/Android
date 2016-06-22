@@ -1,3 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="568d5bda0b4d51f90d978ace369bb9ad024d2057">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.0.2_dce7e731c01acd9e5c6db4497b94f37f83693d88\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4ec890171a97b5ab98292f131aa784e0f3792c73">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.0.2_f30cc765ad6f2dad63d3088349ec21f1c29594a1\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="65f932c936e35671ec283d3d1bcedbadc18be95c">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_603d5f13d17149234b14ab0e86de97c9378f05cb\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.jakewharton\butterknife\8.0.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="74ca46e7da11e3d065eb64cdbe6568a7ed74c211">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.jakewharton-butterknife-8.0.1_515d34ce6b1c9ae9a7df62ac9a440294a63a1a1e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="92a1d5f71b0fc8938f1d3f2e6ef984b52b894b4d">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.0.2_1dd9482e9df28307064ef0707b4f0b9472747fda\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a511c684ea4c2cf31a3377d51e7677cb76696e07">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.0.2_9e7da64f175a39fea9a3d99fc6f32475dba25fa5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\.gradle\caches\modules-2\files-2.1\com.squareup\otto\1.3.8\cf615176cd1177edf71d3c9605f8dc148fede6be\otto-1.3.8.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="cf615176cd1177edf71d3c9605f8dc148fede6be">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\otto-1.3.8_dd53a738e8eb25210a730960fd5cdee4730f8e20\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_70d84762fcfbbdd9f234213a20bd52392565f12a\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fa472b7cbd3897bf6bed6068ac0b00e494987688">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.0.2_ef502635f4b40e59e7980cb6a064981e8a420cc6\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="51a11c41a08f099a204e1b8dcc04f27217de50ec">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.0.2_7e62c1a8fb52058eb5cec6e7ec6b9e89d3f18e55\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a6aaf55afe9a6bdfff6cfc75c97da2356a192be8">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_3969b20de6d12c12702c4354d108161d0f4a56d0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="9819419ce8d79f3f81a0fc70f9345ac8c843af9c">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.0.2_0ad5cb8e0e84af6e4bc7033bf0a3269b6c504a36\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="9919563cffd8e3732e944d3c437d4b9575a08448">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.0.2_43a84f8c690f8d18b1d383e9306f483941810e27\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="b3d0809a742c5f768c6aa9efc6decd5c1d6cd227">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.0.2_cc5a20cdc298a4a935fc3bbf3bf210504017b80e\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_5dcc504a39f25deffcfe37b958b3ab9b716e0a09\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_9552f9f594769892fb5890bf74cc74e1d45cc121\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="060a7157438a0b1b0706b99c430fb3ecbc5a79a4">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.0.2_e40f2b611a94faf7774765e932919557389e4bbf\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="20e1a0f0de6276a5f36062b655f8b20f8cc00cc4">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.0.2_ddaec49672ed940b3b7c7ae820b632f76b3e4b6c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="829c6e46cb221c2102801221c648b77113743e81">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.0.2_5eff5950d676b4c157238100fe64d91deff15014\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="94d9cedd04b124aed044ac71c451a292856d854c">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.0.2_3d8a329cb44d23c97f2ff24eed63b66b69db69b4\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.3.0_30b6b93cf7143f8571624945ab439873f9979f0d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_658527773f96fcea245ca00e03b6e6ba4f8203c6\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f2774b1e02e5fbc524590311a744263c3b152d63">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.0.2_f24592582367bd8c5eb67029e8194ed7504e7439\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4022261eeea0d92eb2997a68d2c1f084a16abad9">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.0.2_b29e61c1df97fc3e0eb8d796f127caf24070c151\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.0.1\345b89f45d02d8b09400b472fab7b7e38f4ede1f\butterknife-annotations-8.0.1.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="345b89f45d02d8b09400b472fab7b7e38f4ede1f">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-annotations-8.0.1_953a09e31a68d3a92215e01427c8955f6d8daea8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="aec1bc54964a85d851c2c1b1cb7f90f7dbd755ab">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.0.2_4ea4d5e9432738f27a69750bef974d512effb242\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.0.2\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="79e298d7fed2fcada58da7032d07d34ee198a545">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.0.2_6164feecb97f3fb93166b4052177602082a28e99\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_fe8fc0c956bb8903c766a8585c50be4809536367\classes.dex" />
+    </item>
+
+</items>

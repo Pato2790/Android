@@ -4,43 +4,30 @@
     api-level="23"
     density="xhdpi"
     format="7"
-    timestamp="32121065359611"
+    timestamp="2411109096753"
     token="-3329692222187520563" >
 
     <task
         name="javac"
-        duration="495" />
+        duration="917" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="473" />
     <task
         name="verifier"
-        duration="0" />
+        duration="166" />
 
     <artifact
-        location="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\res\resources-debug.ap_"
-        type="RESOURCES" />
+        location="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
-    <build timestamp="31302785145416" >
+    <build timestamp="2411109096753" >
         <artifact
             location="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
-    </build>
-    <build timestamp="32045588003323" >
-        <artifact
-            location="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
-    </build>
-    <build timestamp="32121065359611" >
-        <artifact
-            location="C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\res\resources-debug.ap_"
-            type="RESOURCES" />
     </build>
 
 </instant-run>

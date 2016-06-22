@@ -3,6 +3,7 @@ package com.example.pato.tacheando;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -93,7 +94,9 @@ public class FragmentListaViaje extends Fragment {
                 intent.putExtra("id",ArrayPersonas.get(position).getKey());
                 startActivity(intent);*/
 
-                //Implementar mostrarViaje
+                Intent SV = new Intent(getActivity(),ShowViaje.class);
+                SV.putExtra("id",Viajes.get(position).getKey());
+                startActivity(SV);
             }
         });
     }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+
+    <TextView
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Datos del Viaje"
+        android:id="@+id/textoViaje"
+        android:layout_weight="0.13" />
+
+    <ImageView
+        android:layout_width="218dp"
+        android:layout_height="50dp"
+        android:id="@+id/imagenPersona"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.37" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Creador: "
+        android:id="@+id/creador"
+        android:layout_weight="0.04" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Pasajero 2: "
+        android:id="@+id/pasajero2"
+        android:layout_weight="0.04" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Pasajero 3: "
+        android:id="@+id/pasajero3"
+        android:layout_weight="0.04" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Pasajero 4: "
+        android:id="@+id/pasajero4"
+        android:layout_weight="0.04" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Desde: "
+        android:id="@+id/origen"
+        android:layout_weight="0.04" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Hasta: "
+        android:id="@+id/destino"
+        android:layout_weight="0.04" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Cantidad de Pasajeros: "
+        android:id="@+id/cantPasajeros"
+        android:layout_weight="0.04" />
+
+    <Button
+        android:layout_width="148dp"
+        android:layout_height="wrap_content"
+        android:text="Unirse"
+        android:id="@+id/agregarse"
+        android:layout_gravity="right"
+        android:layout_weight="0.06" />
+</LinearLayout>

@@ -18,18 +18,9 @@
     <FrameLayout
         android:id="@+id/FragmentListaViaje"
         android:layout_width="match_parent"
-        android:layout_height="159dp"/>
+        android:layout_height="match_parent"/>
 
-    <AutoCompleteTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPostalAddress"
-        android:ems="10"
-        android:id="@+id/direccion2"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.04" />
-
-    <TextView
+    <!--<TextView
         android:layout_width="163dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -55,6 +46,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/textView4" />
+        android:id="@+id/textView4" />-->
 
 </LinearLayout>

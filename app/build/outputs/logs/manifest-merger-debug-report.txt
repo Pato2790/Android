@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:2:1-33:12
+ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:2:1-34:12
 	package
 		ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:3:5-41
 		INJECTED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml
@@ -39,7 +39,7 @@ ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidMan
 	android:name
 		ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:9:22-78
 application
-ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:11:5-31:19
+ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:11:5-32:19
 MERGED from [com.android.support:appcompat-v7:23.3.0] C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:23.3.0] C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-v4:23.3.0] C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
@@ -312,12 +312,16 @@ activity#com.example.pato.tacheando.BaseActivity
 ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:25:9-50
 	android:name
 		ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:25:19-47
-meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:27:9-29:70
-	android:value
-		ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:29:13-68
+activity#com.example.pato.tacheando.ShowViaje
+ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:26:9-47
 	android:name
-		ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:28:13-58
+		ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:26:19-44
+meta-data#com.google.android.geo.API_KEY
+ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:28:9-30:70
+	android:value
+		ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:30:13-68
+	android:name
+		ADDED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml:29:13-58
 uses-sdk
 INJECTED from C:\Users\Pato\AndroidStudioProjects\Tacheando\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.3.0] C:\Users\Pato\AndroidStudioProjects\Tacheando\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:21:5-23:78

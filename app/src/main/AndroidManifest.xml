@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".Main" />
         <activity android:name=".BaseActivity" />
+        <activity android:name=".ShowViaje" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

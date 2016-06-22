@@ -1,35 +1,23 @@
 package com.example.pato.tacheando;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.location.places.AutocompletePrediction;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.PlaceBuffer;
-import com.google.android.gms.location.places.Places;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,16 +25,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public class Main extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,FragmentBusqueda.OnFragmentInteractionListener,LocationListener {
+public class Main extends AppCompatActivity implements FragmentBusqueda.OnFragmentInteractionListener,LocationListener{
 
     private DatabaseReference DB = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference Viaje;
+    private FirebaseUser user;
 
-    private String LatOrigen = "";
-    private String LongOrigen ="";
+    public String LatOrigen = "";
+    public String LongOrigen ="";
     private String LatDestino = "";
     private String LongDestino ="";
 
@@ -55,107 +45,69 @@ public class Main extends AppCompatActivity implements GoogleApiClient.Connectio
     private TextView T1,T2,T3,T4;
 
     private LocationManager locationManager;
-    private String proveedor;
     private boolean networkOn;
 
-    private GoogleApiClient mGoogleApiClient;
-    private PlaceAutocompleteAdapter mAdapter;
-    private AutoCompleteTextView Autocomplete;
-    private static final LatLngBounds BOUNDS_GREATER_SYDNEY = new LatLngBounds(
-            new LatLng(-34.041458, 150.790100), new LatLng(-33.682247, 151.383362));
-    private TextView mPlaceDetailsText;
-    private TextView mPlaceDetailsAttribution;
+    private String uid;
+    private String userName;
+    private String userEmail;
+    private Uri userPhotoUrl;
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Fragment newFragment = FragmentBusqueda.newInstance();
+        /*T1 = (TextView)findViewById(R.id.textView);
+        T2 = (TextView)findViewById(R.id.textView2);
+        T3 = (TextView)findViewById(R.id.textView3);
+        T4 = (TextView)findViewById(R.id.textView4);*/
+
+        //Para obtener Ubicacion
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        networkOn = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER) || locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        try
+        {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 1000, 1 , this);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 1 , this);
+
+        }
+        catch (SecurityException e){System.out.println("Error en el mapa");}
+
+        getLocation();
+
+        Fragment newFragment = FragmentBusqueda.newInstance(LongOrigen, LatOrigen);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.add(R.id.FragmentBusq, newFragment).commit();
 
         Viaje = DB.child("Viaje");
 
-        T1 = (TextView)findViewById(R.id.textView);
-        T2 = (TextView)findViewById(R.id.textView2);
-        T3 = (TextView)findViewById(R.id.textView3);
-        T4 = (TextView)findViewById(R.id.textView4);
-
-        //Para obtener Ubicacion
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        proveedor = LocationManager.GPS_PROVIDER;
-        networkOn = locationManager.isProviderEnabled(proveedor);
-        try
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null)
         {
-            locationManager.requestLocationUpdates(proveedor, 1000, 1 , this);
+            userName = user.getDisplayName();
+            userEmail = user.getEmail();
+            userPhotoUrl = user.getPhotoUrl();
+            uid = user.getUid();
         }
-        catch (SecurityException e){System.out.println("Error en el mapa");}
-
-        mGoogleApiClient = new GoogleApiClient
-                .Builder(this)
-                .addApi(Places.GEO_DATA_API)
-                .addApi(Places.PLACE_DETECTION_API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
-
-        Autocomplete = (AutoCompleteTextView)
-                findViewById(R.id.direccion2);
-        Autocomplete.setOnItemClickListener(mAutocompleteClickListener);
-
-        mAdapter = new PlaceAutocompleteAdapter(this, mGoogleApiClient, BOUNDS_GREATER_SYDNEY,
-                null);
-        Autocomplete.setAdapter(mAdapter);
 
     }
 
-    private AdapterView.OnItemClickListener mAutocompleteClickListener = new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            /*
-             Retrieve the place ID of the selected item from the Adapter.
-             The adapter stores each Place suggestion in a AutocompletePrediction from which we
-             read the place ID and title.
-              */
-                final AutocompletePrediction item = mAdapter.getItem(position);
-                final String placeId = item.getPlaceId();
-                final CharSequence primaryText = item.getPrimaryText(null);
-
-
-            /*
-             Issue a request to the Places Geo Data API to retrieve a Place object with additional
-             details about the place.
-              */
-                PendingResult<PlaceBuffer> placeResult = Places.GeoDataApi
-                        .getPlaceById(mGoogleApiClient, placeId);
-                placeResult.setResultCallback(mUpdatePlaceDetailsCallback);
-
-                Toast.makeText(getApplicationContext(), "Clicked: " + primaryText,
-                        Toast.LENGTH_SHORT).show();
-
-            }
-        };
-
-
-    @Override
+   @Override
     protected void onStart() {
         super.onStart();
-        mGoogleApiClient.connect();
+
     }
 
     @Override
     protected void onStop() {
-        mGoogleApiClient.disconnect();
         super.onStop();
     }
 
     //Metodo Listener FragmentBusqueda
     @Override
     public void BuscarAction(String Direccion) {
-        obtLatLong("Avenida Colón 22, Bahía Blanca, Argentina");
-
-        getLocation();
+        obtLatLong(Direccion);
 
         Fragment newFragment = FragmentListaViaje.newInstance();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -192,7 +144,31 @@ public class Main extends AppCompatActivity implements GoogleApiClient.Connectio
 
                         if(AL.size() == 0)
                         {
+                            new AlertDialog.Builder(Main.this)
+                                    .setTitle("Ningun viaje encontrado")
+                                    .setMessage("¿Desea crear un nuevo viaje?")
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
 
+                                            String Key = DB.child("Viaje").push().getKey();
+
+                                            Viaje V = new Viaje(Double.parseDouble(LatDestino),Double.parseDouble(LatOrigen),Double.parseDouble(LongDestino),Double.parseDouble(LongOrigen),"No", userName);
+                                            Map<String, Object> postValues = V.toMap();
+                                            Map<String, Object> childUpdates = new HashMap<>();
+                                            childUpdates.put("/Viaje/" + Key, postValues);
+                                            DB.updateChildren(childUpdates);
+
+                                            Intent SV = new Intent(Main.this,ShowViaje.class);
+                                            SV.putExtra("id",Key);
+                                            startActivity(SV);
+
+                                        }
+                                    })
+                                    .setNegativeButton("Seguir Buscando", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {}
+                                    }).create().show();
                         }
                         else
                         {
@@ -224,29 +200,39 @@ public class Main extends AppCompatActivity implements GoogleApiClient.Connectio
             location.getLongitude();
 
             LatDestino = "" + (location.getLatitude());
-            T1.setText("LatDestino: " + LatDestino);
+            //T1.setText("LatDestino: " + LatDestino);
             LongDestino = "" + (location.getLongitude());
-            T2.setText("LongDestino: " + LongDestino);
+            //T2.setText("LongDestino: " + LongDestino);
         }
         catch (Exception e){}
 
     }
 
+
     private void getLocation(){
-        Location lc = null;
+        Location lcGPS = null;
+        Location lcNETWORK = null;
         if (networkOn){
 
             try
             {
-                lc = locationManager.getLastKnownLocation(proveedor);
+                lcGPS = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                lcNETWORK = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             }
             catch (SecurityException e){}
 
-            if(lc != null){
-                LatOrigen = "" + lc.getLatitude();
-                T3.setText("LatOrigen: " + LatOrigen);
-                LongOrigen = "" + lc.getLongitude();
-                T4.setText("LongOrigen: " + LongOrigen);
+            if(lcGPS != null) {
+                LatOrigen = "" + lcGPS.getLatitude();
+                //T3.setText("LatOrigen: " + LatOrigen);
+                LongOrigen = "" + lcGPS.getLongitude();
+                //T4.setText("LongOrigen: " + LongOrigen);
+            }
+            else
+            {
+                LatOrigen = "" + lcNETWORK.getLatitude();
+                //T3.setText("LatOrigen: " + LatOrigen);
+                LongOrigen = "" + lcNETWORK.getLongitude();
+                //T4.setText("LongOrigen: " + LongOrigen);
             }
         }
     }
@@ -262,6 +248,7 @@ public class Main extends AppCompatActivity implements GoogleApiClient.Connectio
 
     public static Intent createIntent(Context context) {
         Intent in = new Intent();
+        in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         in.setClass(context, Main.class);
         return in;
     }
@@ -285,46 +272,5 @@ public class Main extends AppCompatActivity implements GoogleApiClient.Connectio
     public void onProviderDisabled(String provider) {
 
     }
-
-    @Override
-    public void onConnected(@Nullable Bundle bundle) {
-
-    }
-
-    @Override
-    public void onConnectionSuspended(int i) {
-
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
-    }
-
-    private ResultCallback<PlaceBuffer> mUpdatePlaceDetailsCallback
-            = new ResultCallback<PlaceBuffer>() {
-        @Override
-        public void onResult(PlaceBuffer places) {
-            if (!places.getStatus().isSuccess()) {
-                // Request did not complete successfully
-                places.release();
-                return;
-            }
-            // Get the Place object from the buffer.
-            final Place place = places.get(0);
-
-            // Display the third party attributions if set.
-            final CharSequence thirdPartyAttribution = places.getAttributions();
-            if (thirdPartyAttribution == null) {
-                mPlaceDetailsAttribution.setVisibility(View.GONE);
-            } else {
-                mPlaceDetailsAttribution.setVisibility(View.VISIBLE);
-                mPlaceDetailsAttribution.setText(Html.fromHtml(thirdPartyAttribution.toString()));
-            }
-
-            places.release();
-        }
-    };
-
 
 }
