@@ -127,13 +127,21 @@ public class FragmentListaViaje extends Fragment {
 
                 holder = new MyHolder();
                 holder.imgIcon = (ImageView) row.findViewById(R.id.imagenViaje);
-                holder.txtNombreViaje = (TextView) row.findViewById(R.id.nombreViaje);
+                holder.txtDesde = (TextView) row.findViewById(R.id.desde);
+                holder.txtHasta = (TextView) row.findViewById(R.id.hasta);
+                holder.txtCantPas = (TextView) row.findViewById(R.id.cantPas);
+                holder.txtCreador = (TextView) row.findViewById(R.id.creador);
                 row.setTag(holder);
             } else {
                 holder = (MyHolder) row.getTag();
             }
 
-            holder.txtNombreViaje.setText(Viajes.get(position).child("NombreViaje").getValue(String.class));
+            Ubicacion U = new Ubicacion(getActivity());
+
+            holder.txtHasta.setText("Hasta: " + U.getAddress(Viajes.get(position).child("LatDestino").getValue(Double.class),Viajes.get(position).child("LongDestino").getValue(Double.class)));
+            holder.txtDesde.setText("Desde: " + U.getAddress(Viajes.get(position).child("LatOrigen").getValue(Double.class),Viajes.get(position).child("LongOrigen").getValue(Double.class)));
+            holder.txtCreador.setText("Creador: " + Viajes.get(position).child("UsuarioCreador").getValue(String.class));
+            holder.txtCantPas.setText("Cantidad Pasajeros: " + Viajes.get(position).child("CantPasajeros").getValue(Integer.class));
             holder.imgIcon.setImageResource(R.drawable.viaje);
 
             return row;
@@ -142,7 +150,10 @@ public class FragmentListaViaje extends Fragment {
 
     static class MyHolder {
         ImageView imgIcon;
-        TextView txtNombreViaje;
+        TextView txtDesde;
+        TextView txtHasta;
+        TextView txtCantPas;
+        TextView txtCreador;
     }
 
 }

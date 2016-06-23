@@ -15,19 +15,19 @@
       },
       "oauth_client": [
         {
-          "client_id": "668625905944-694jev62d767n649q51mrggvdmtu151t.apps.googleusercontent.com",
+          "client_id": "668625905944-9labtj4839d435qhvk6plshp4rv4l0h0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.pato.tacheando",
-            "certificate_hash": "5119A1A1CDE062A435C4ADF5C35578BDF411A2CA"
+            "certificate_hash": "E6AF1DBA4B661BB960CC6446EA3FFB41FE4CBD71"
           }
         },
         {
-          "client_id": "668625905944-soes6ch1ekhjauhl46skfmlptrf7b2rg.apps.googleusercontent.com",
+          "client_id": "668625905944-hnnh447i151pbapoj1r5m1ojt9u1gafh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.pato.tacheando",
-            "certificate_hash": "64491DC40061BB33A9EB274E2C33267B5C2F5CF2"
+            "certificate_hash": "B758E6ED1DEC5268DFCC036E851D122F38DFBA81"
           }
         },
         {

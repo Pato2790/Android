@@ -1,85 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
+    android:layout_height="match_parent">
+    <!-- The main content view -->
 
-
-    <TextView
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Datos del Viaje"
-        android:id="@+id/textoViaje"
-        android:layout_weight="0.13" />
-
-    <ImageView
-        android:layout_width="218dp"
-        android:layout_height="50dp"
-        android:id="@+id/imagenPersona"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.37" />
-
-    <TextView
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Creador: "
-        android:id="@+id/creador"
-        android:layout_weight="0.04" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Pasajero 2: "
-        android:id="@+id/pasajero2"
-        android:layout_weight="0.04" />
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.example.lautaro.myapplication.MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Pasajero 3: "
-        android:id="@+id/pasajero3"
-        android:layout_weight="0.04" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Pasajero 4: "
-        android:id="@+id/pasajero4"
-        android:layout_weight="0.04" />
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Desde: "
-        android:id="@+id/origen"
-        android:layout_weight="0.04" />
+        </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hasta: "
-        android:id="@+id/destino"
-        android:layout_weight="0.04" />
+        <android.support.v7.widget.LinearLayoutCompat
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Cantidad de Pasajeros: "
-        android:id="@+id/cantPasajeros"
-        android:layout_weight="0.04" />
+        <ImageView
+            android:layout_width="326dp"
+            android:layout_height="50dp"
+            android:id="@+id/imagenMapa"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.68" />
 
-    <Button
-        android:layout_width="148dp"
-        android:layout_height="wrap_content"
-        android:text="Unirse"
-        android:id="@+id/agregarse"
-        android:layout_gravity="right"
-        android:layout_weight="0.06" />
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Creador: "
+            android:id="@+id/creador"
+            android:layout_weight="0.04" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pasajero 2: "
+            android:id="@+id/pasajero2"
+            android:layout_weight="0.04" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pasajero 3: "
+            android:id="@+id/pasajero3"
+            android:layout_weight="0.04" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Pasajero 4: "
+            android:id="@+id/pasajero4"
+            android:layout_weight="0.04" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Desde: "
+            android:id="@+id/origen"
+            android:layout_weight="0.04" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Hasta: "
+            android:id="@+id/destino"
+            android:layout_weight="0.04" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Cantidad de Pasajeros: "
+            android:id="@+id/cantPasajeros"
+            android:layout_weight="0.04" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp">
+
+            <Button
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                android:text="Abandonar"
+                android:id="@+id/abandonar"
+                android:layout_weight="0.06" />
+
+            <Button
+                android:layout_width="148dp"
+                android:layout_height="wrap_content"
+                android:text="Unirse"
+                android:id="@+id/agregarse"
+                android:layout_gravity="right"
+                android:layout_weight="0.06"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </android.support.design.widget.CoordinatorLayout>
+    <!-- The navigation drawer -->
+    <!--
+    <ListView android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#111"/>
+    -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/left_drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/listaitem" />
+</android.support.v4.widget.DrawerLayout>

@@ -1,9 +1,22 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    signingConfigs {
+        release {
+            keyAlias 'releasekey'
+            keyPassword 'tacheando'
+            storeFile file('../publish/releasekey.jks')
+            storePassword 'tacheando'
+        }
+        debug {
+            keyAlias 'debugkey'
+            keyPassword 'tacheandoapp'
+            storeFile file('../publish/debugkey.jks')
+            storePassword 'tacheandoapp'
+        }
+    }
+    compileSdkVersion 'Google Apis:Google Apis:23'
     buildToolsVersion "23.0.3"
-
     defaultConfig {
         applicationId "com.example.pato.tacheando"
         minSdkVersion 10
@@ -15,6 +28,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
 }
@@ -31,7 +50,10 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:9.0.2'
     compile 'com.jakewharton:butterknife:8.0.1'
     compile 'com.google.android.gms:play-services-location:9.0.2'
-
+    compile 'com.android.support:design:23.4.0'
 }
+
+
+
 
 apply plugin: 'com.google.gms.google-services'
