@@ -53,6 +53,9 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
     private String userEmail;
     private Uri userPhotoUrl;
 
+    private ArrayList<DataSnapshot> AL;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +131,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
 
                             Iterable<DataSnapshot> IViajes = dataSnapshot.getChildren();
 
-                            ArrayList<DataSnapshot> AL = new ArrayList<DataSnapshot>();
+                            AL = new ArrayList<DataSnapshot>();
 
                             for (DataSnapshot DS : IViajes) {
                                 LatD = DS.child("LatDestino").getValue(Double.class);
@@ -143,11 +146,9 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
                                     }
                                 }
                             }
-
+                            SharedData.bus().post(new Viajes(AL));
                             if (AL.size() == 0) {
                                 alertNoHayViajes();
-                            } else {
-                                SharedData.bus().post(new Viajes(AL));
                             }
                         }
 
@@ -155,6 +156,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
                         public void onCancelled(DatabaseError databaseError) {
 
                         }
+
                     });
                 }
             }).start();
@@ -176,9 +178,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
             location.getLongitude();
 
             LatDestino = "" + (location.getLatitude());
-            //T1.setText("LatDestino: " + LatDestino);
             LongDestino = "" + (location.getLongitude());
-            //T2.setText("LongDestino: " + LongDestino);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -200,14 +200,10 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
 
             if (lcGPS != null) {
                 LatOrigen = "" + lcGPS.getLatitude();
-                //T3.setText("LatOrigen: " + LatOrigen);
                 LongOrigen = "" + lcGPS.getLongitude();
-                //T4.setText("LongOrigen: " + LongOrigen);
             } else if (lcNETWORK != null){
                 LatOrigen = "" + lcNETWORK.getLatitude();
-                //T3.setText("LatOrigen: " + LatOrigen);
                 LongOrigen = "" + lcNETWORK.getLongitude();
-                //T4.setText("LongOrigen: " + LongOrigen);
             }
             else {
                 return false;
@@ -217,14 +213,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
         return false;
     }
 
-    public class Viajes {
-        public ArrayList<DataSnapshot> viajes;
 
-        public Viajes(ArrayList<DataSnapshot> v) {
-            viajes = v;
-        }
-
-    }
 
     public static Intent createIntent(Context context) {
         Intent in = new Intent();
@@ -281,6 +270,26 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
         }
     }
 
+
+
+    protected void iniciarFragmentBusqueda() {
+//        Log.d("TAG", "Iniciar Frag1");
+        networkOn = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER) || locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (networkOn) {
+//            Log.d("TAG", "Iniciar Frag2");
+            while(!getLocation());
+            if(getLocation()) {
+//                Log.d("TAG", "Iniciar Frag3");
+                Fragment newFragment = FragmentBusqueda.newInstance(LongOrigen, LatOrigen);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.add(R.id.FragmentBusq, newFragment).commitAllowingStateLoss();
+            }
+            else {
+                alertUbicacion();
+            }
+        }
+    }
+
     protected void alertGps() {
         new AlertDialog.Builder(Main.this)
                 .setTitle("Es necesario que active su GPS")
@@ -297,24 +306,6 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
                     }
                 })
                 .setCancelable(false).create().show();
-    }
-
-    protected void iniciarFragmentBusqueda() {
-        Log.d("TAG", "Iniciar Frag1");
-        networkOn = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER) || locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        if (networkOn) {
-            Log.d("TAG", "Iniciar Frag2");
-            while(!getLocation());
-            if(getLocation()) {
-                Log.d("TAG", "Iniciar Frag3");
-                Fragment newFragment = FragmentBusqueda.newInstance(LongOrigen, LatOrigen);
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.add(R.id.FragmentBusq, newFragment).commitAllowingStateLoss();
-            }
-            else {
-                alertUbicacion();
-            }
-        }
     }
 
     protected void alertUbicacion() {
@@ -372,5 +363,14 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
 
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    public class Viajes {
+        public ArrayList<DataSnapshot> viajes;
+
+        public Viajes(ArrayList<DataSnapshot> v) {
+            viajes = v;
+        }
+
     }
 }
