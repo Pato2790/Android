@@ -8,8 +8,11 @@
         android:minSdkVersion="10"
         android:targetSdkVersion="23" />
 
-    <!-- Required permission for App measurement to run. -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
  <!-- Optional permission for App measurement to run. -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -20,6 +23,10 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.example.pato.tacheando.permission.C2D_MESSAGE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -36,6 +43,11 @@
         </activity>
         <activity android:name="com.example.pato.tacheando.Main" />
         <activity android:name="com.example.pato.tacheando.BaseActivity" />
+        <activity android:name="com.example.pato.tacheando.ShowViaje" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB1dV0C9D4r0B90f-kEmqJfe8WXq1JdbUo" />
 
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"

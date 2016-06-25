@@ -77,6 +77,7 @@ public class LoginActivity extends BaseActivity implements
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
+                //.requestIdToken("668625905944-1mvpi5q9sh3tq649bhaq48tomb2n7upe.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         // [END config_signin]
@@ -154,7 +155,7 @@ public class LoginActivity extends BaseActivity implements
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
         // [START_EXCLUDE silent]
-        showProgressDialog();
+        //showProgressDialog();
         // [END_EXCLUDE]
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
@@ -173,7 +174,7 @@ public class LoginActivity extends BaseActivity implements
                                     Toast.LENGTH_SHORT).show();
                         }
                         // [START_EXCLUDE]
-                        hideProgressDialog();
+                        //hideProgressDialog();
                         // [END_EXCLUDE]
                     }
                 });
