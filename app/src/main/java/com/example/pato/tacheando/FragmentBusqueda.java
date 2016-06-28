@@ -100,6 +100,11 @@ public class FragmentBusqueda extends Fragment implements GoogleApiClient.Connec
             }
         });
 
+        v.findViewById(R.id.btnAgregar).setOnClickListener(new View.OnClickListener(){
+            @Override public void onClick(View v) {
+                crear();
+            }
+        });
         return v;
     }
 
@@ -144,6 +149,12 @@ public class FragmentBusqueda extends Fragment implements GoogleApiClient.Connec
         }
     }
 
+    public void crear(){
+        if (mListener != null) {
+            mListener.BuscarAction(direccion.getText().toString());
+        }
+    }
+
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
@@ -162,6 +173,7 @@ public class FragmentBusqueda extends Fragment implements GoogleApiClient.Connec
     public interface OnFragmentInteractionListener {
         void BuscarAction(String Direccion);
     }
+
 
     private ResultCallback<PlaceBuffer> mUpdatePlaceDetailsCallback
             = new ResultCallback<PlaceBuffer>() {

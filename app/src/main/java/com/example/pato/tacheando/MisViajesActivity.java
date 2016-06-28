@@ -27,7 +27,7 @@ public class MisViajesActivity extends DrawerNav {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mis_viajes);
+        //setContentView(R.layout.activity_mis_viajes);
 
         Viaje = DB.child("Viaje");
 
@@ -41,7 +41,7 @@ public class MisViajesActivity extends DrawerNav {
 
         Fragment newFragment = FragmentListaViaje.newInstance();
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.FragmentListaViaje, newFragment).commit();
+        ft.add(R.id.FragmentListaMisViaje, newFragment).commit();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         final String uid = user.getUid();
@@ -51,7 +51,7 @@ public class MisViajesActivity extends DrawerNav {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Viaje.orderByChild("IdUsuarioCreador").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                    Viaje.orderByChild("IDUsuarioCreador").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             AL = new ArrayList<DataSnapshot>();
@@ -83,7 +83,7 @@ public class MisViajesActivity extends DrawerNav {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Viaje.orderByChild("IdUsuario1").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                    Viaje.orderByChild("IDUsuario1").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -104,7 +104,7 @@ public class MisViajesActivity extends DrawerNav {
                         }
 
                     });
-                    Viaje.orderByChild("IdUsuario2").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                    Viaje.orderByChild("IDUsuario2").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -125,7 +125,7 @@ public class MisViajesActivity extends DrawerNav {
                         }
 
                     });
-                    Viaje.orderByChild("IdUsuario3").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                    Viaje.orderByChild("IDUsuario3").equalTo(uid).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
 

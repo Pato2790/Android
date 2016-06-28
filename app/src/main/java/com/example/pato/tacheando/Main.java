@@ -62,7 +62,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
         checkPermissions();
 
@@ -340,17 +340,6 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        /*String Key = dbRef.child("Viaje").push().getKey();
-
-                        Viaje V = new Viaje(Double.parseDouble(latDestino), Double.parseDouble(latOrigen), Double.parseDouble(longDestino), Double.parseDouble(longOrigen), "No", userName);
-                        Map<String, Object> postValues = V.toMap();
-                        Map<String, Object> childUpdates = new HashMap<>();
-                        childUpdates.put("/Viaje/" + Key, postValues);
-                        dbRef.updateChildren(childUpdates);
-
-                        Intent SV = new Intent(Main.this, ShowViaje.class);
-                        SV.putExtra("id", Key);
-                        startActivity(SV);*/
 
                         String Key = dbRef.child("Viaje").push().getKey();
 
