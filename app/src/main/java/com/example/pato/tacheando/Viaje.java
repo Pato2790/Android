@@ -13,51 +13,64 @@ import java.util.Map;
 @IgnoreExtraProperties
 public class Viaje {
 
-    public int CantPas;
-    public String FechaViaje;
-    public double LatDestino;
-    public double LatOrigen;
-    public double LongOrigen;
-    public double LongDestino;
-    public String LlegoDestino;
-    public String User1;
-    public String User2;
-    public String User3;
-    public String UserCreador;
+    public int cantPas;
+    public String fechaViaje;
+    public double latDestino;
+    public double latOrigen;
+    public double longOrigen;
+    public double longDestino;
+    public String llegoDestino;
+    public String user1;
+    public String user2;
+    public String user3;
+    public String userCreador;
+    public String idUser1;
+    public String idUser2;
+    public String idUser3;
+    public String idUserCreador;
+
     public Map<String, Boolean> stars = new HashMap<>();
 
     public Viaje() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Viaje(double LatD, double LatO, double LongD, double LongO, String LD, String UC) {
-        CantPas = 1;
-        FechaViaje = new Date().toString();
-        LatDestino = LatD;
-        LatOrigen = LatO;
-        LongOrigen = LongO;
-        LongDestino = LongD;
-        UserCreador = UC;
-        LlegoDestino = LD;
-        User1 = "Lugar Disponible";
-        User2 = "Lugar Disponible";
-        User3 = "Lugar Disponible";
+    public Viaje(double LatD, double LatO, double LongD, double LongO, String LD, String UC, String idUC) {
+        cantPas = 1;
+        fechaViaje = new Date().toString();
+        latDestino = LatD;
+        latOrigen = LatO;
+        longOrigen = LongO;
+        longDestino = LongD;
+        userCreador = UC;
+        llegoDestino = LD;
+        user1 = "Lugar Disponible";
+        user2 = "Lugar Disponible";
+        user3 = "Lugar Disponible";
+        idUser1 = "";
+        idUser2 = "";
+        idUser3 = "";
+        idUserCreador = idUC;
     }
 
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("CantPasajeros", CantPas);
-        result.put("FechaViaje", FechaViaje);
-        result.put("LatDestino", LatDestino);
-        result.put("LatOrigen", LatOrigen);
-        result.put("LongDestino", LongDestino);
-        result.put("LongOrigen", LongOrigen);
-        result.put("UsuarioCreador", UserCreador);
-        result.put("Usuario1", User1);
-        result.put("Usuario2", User2);
-        result.put("Usuario3", User3);
-        result.put("LlegoDestino", LlegoDestino);
+        result.put("CantPasajeros", cantPas);
+        result.put("FechaViaje", fechaViaje);
+        result.put("LatDestino", latDestino);
+        result.put("LatOrigen", latOrigen);
+        result.put("LongDestino", longDestino);
+        result.put("LongOrigen", longOrigen);
+        result.put("UsuarioCreador", userCreador);
+        result.put("IDUsuarioCreador", idUserCreador);
+        result.put("Usuario1", user1);
+        result.put("IDUsuario1", idUser1);
+        result.put("Usuario2", user2);
+        result.put("IDUsuario2", idUser2);
+        result.put("Usuario3", user3);
+        result.put("IDUsuario3", idUser3);
+        result.put("LlegoDestino", llegoDestino);
         result.put("NombreViaje", "ViajeBahia");
 
         return result;

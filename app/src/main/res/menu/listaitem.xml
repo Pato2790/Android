@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_BuscarViaje"
+        android:icon="@drawable/ic_buscarviaje"
+        android:title="Buscar viaje" />
+
+    <group android:checkableBehavior="single">
+            <menu>
+                <item
+                    android:id="@+id/nav_ViajeCreado"
+                    android:icon="@drawable/ic_viaje"
+                    android:title="Viajes creados" />
+                <item
+                    android:id="@+id/nav_ViajeUnido"
+                    android:icon="@drawable/ic_viaje"
+                    android:title="Viajes unidos" />
+            </menu>
+
+        <menu>
+        <item
+            android:id="@+id/nav_Logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+        </menu>
+    </group>
+
+
+
+
+
+</menu>

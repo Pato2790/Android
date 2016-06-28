@@ -21,15 +21,15 @@ import java.util.Map;
 public class ShowViaje extends DrawerNav {
 
     private TextView tCreador,tOrigen,tDestino,cantPasajeros,tPasajero2,tPasajero3,tPasajero4;
-    private Button Agregar, Abandonar;
-    private int CantPas;
-    private String U1,U2,U3,UC,FechaViaje,LlegoDest,NombreViaje;
-    private double LatO, LatD, LongO, LongD;
-    private ImageView Mapa;
+    private Button agregarBtn, abandonarBtn;
+    private int cantPas;
+    private String user1,user2,user3,userC,idUser1,idUser2,idUser3,idUserC,fechaViaje,llegoDest,nombreViaje;
+    private double latO, latD, longO, longD;
+    private ImageView map;
 
     //referencias a BD Firebase
 
-    DatabaseReference MyRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference refViaje;
 
     @Override
@@ -37,7 +37,7 @@ public class ShowViaje extends DrawerNav {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actividad_show_viaje);
 
-        Mapa = (ImageView) findViewById(R.id.imagenMapa);
+        map = (ImageView) findViewById(R.id.imagenMapa);
         tCreador = (TextView) findViewById(R.id.creador);
         tOrigen = (TextView) findViewById(R.id.origen);
         tDestino = (TextView) findViewById(R.id.destino);
@@ -45,10 +45,10 @@ public class ShowViaje extends DrawerNav {
         tPasajero2 = (TextView) findViewById(R.id.pasajero2);
         tPasajero3 = (TextView) findViewById(R.id.pasajero3);
         tPasajero4 = (TextView) findViewById(R.id.pasajero4);
-        Agregar = (Button) findViewById(R.id.agregarse);
-        Abandonar = (Button) findViewById(R.id.abandonar);
+        agregarBtn = (Button) findViewById(R.id.agregarse);
+        abandonarBtn = (Button) findViewById(R.id.abandonar);
 
-        refViaje = MyRef.child("Viaje").child(getIntent().getStringExtra("id"));
+        refViaje = myRef.child("Viaje").child(getIntent().getStringExtra("id"));
 
     }
 
@@ -62,35 +62,39 @@ public class ShowViaje extends DrawerNav {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 //Log.d("TAG", dataSnapshot.getValue() +"");
                 if(dataSnapshot.getValue() != null) {
-                    UC = dataSnapshot.child("UsuarioCreador").getValue(String.class);
-                    tCreador.setText("Creador: " + UC);
-                    U1 = dataSnapshot.child("Usuario1").getValue(String.class);
-                    tPasajero2.setText("Pasajero 2: " + U1);
-                    U2 = dataSnapshot.child("Usuario2").getValue(String.class);
-                    tPasajero3.setText("Pasajero 3: " + U2);
-                    U3 = dataSnapshot.child("Usuario3").getValue(String.class);
-                    tPasajero4.setText("Pasajero 4: " + U3);
-                    LongO = dataSnapshot.child("LongOrigen").getValue(Double.class);
-                    LatO = dataSnapshot.child("LatOrigen").getValue(Double.class);
-                    LongD = dataSnapshot.child("LongDestino").getValue(Double.class);
-                    LatD = dataSnapshot.child("LatDestino").getValue(Double.class);
+                    userC = dataSnapshot.child("UsuarioCreador").getValue(String.class);
+                    idUserC = dataSnapshot.child("IDUsuarioCreador").getValue(String.class);
+                    tCreador.setText("Creador: " + userC);
+                    user1 = dataSnapshot.child("Usuario1").getValue(String.class);
+                    idUser1 = dataSnapshot.child("IDUsuario1").getValue(String.class);
+                    tPasajero2.setText("Pasajero 2: " + user1);
+                    user2 = dataSnapshot.child("Usuario2").getValue(String.class);
+                    idUser2 = dataSnapshot.child("IDUsuario2").getValue(String.class);
+                    tPasajero3.setText("Pasajero 3: " + user2);
+                    user3 = dataSnapshot.child("Usuario3").getValue(String.class);
+                    idUser3 = dataSnapshot.child("IDUsuario3").getValue(String.class);
+                    tPasajero4.setText("Pasajero 4: " + user3);
+                    longO = dataSnapshot.child("LongOrigen").getValue(Double.class);
+                    latO = dataSnapshot.child("LatOrigen").getValue(Double.class);
+                    longD = dataSnapshot.child("LongDestino").getValue(Double.class);
+                    latD = dataSnapshot.child("LatDestino").getValue(Double.class);
 
                     Ubicacion U = new Ubicacion(ShowViaje.this);
 
-                    tOrigen.setText("Origen: " + U.getAddress(LatO, LongO));
+                    tOrigen.setText("Origen: " + U.getAddress(latO, longO));
 
-                    tDestino.setText("Destino: " + U.getAddress(LatD, LongD));
+                    tDestino.setText("Destino: " + U.getAddress(latD, longD));
 
-                    CantPas = dataSnapshot.child("CantPasajeros").getValue(Integer.class);
-                    cantPasajeros.setText("Cantidad de Pasajeros: " + CantPas);
+                    cantPas = dataSnapshot.child("CantPasajeros").getValue(Integer.class);
+                    cantPasajeros.setText("Cantidad de Pasajeros: " + cantPas);
 
-                    FechaViaje = dataSnapshot.child("FechaViaje").getValue(String.class);
+                    fechaViaje = dataSnapshot.child("FechaViaje").getValue(String.class);
 
-                    LlegoDest = dataSnapshot.child("LlegoDestino").getValue(String.class);
+                    llegoDest = dataSnapshot.child("LlegoDestino").getValue(String.class);
 
-                    NombreViaje = dataSnapshot.child("NombreViaje").getValue(String.class);
+                    nombreViaje = dataSnapshot.child("NombreViaje").getValue(String.class);
 
-                    Mapa.setImageResource(R.drawable.mapa);
+                    map.setImageResource(R.drawable.mapa);
                 }
                 /*else {
                     finish();
@@ -102,50 +106,62 @@ public class ShowViaje extends DrawerNav {
             }
         });
 
-        Agregar.setOnClickListener(new View.OnClickListener() {
+        agregarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String UserActual = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-                if (CantPas < 4) {
-                    if (!U1.equals(UserActual) && !U2.equals(UserActual) && !U3.equals(UserActual) && !UC.equals(UserActual)) {
+                String IDUserActual = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                if (cantPas < 4) {
+                    if (!user1.equals(UserActual) && !user2.equals(UserActual) && !user3.equals(UserActual) && !userC.equals(UserActual)) {
                         Map<String, Object> postValues = new HashMap<>();
 
-                        switch (CantPas) {
+                        switch (cantPas) {
                             case 1: {
-                                U1 = UserActual;
+                                user1 = UserActual;
+                                idUser1 = IDUserActual;
                                 break;
                             }
                             case 2: {
-                                U2 = UserActual;
+                                user2 = UserActual;
+                                idUser2 = IDUserActual;
                                 break;
                             }
                             case 3: {
-                                U3 = UserActual;
+                                user3 = UserActual;
+                                idUser3 = IDUserActual;
                                 break;
                             }
                         }
 
-                        CantPas++;
-                        postValues.put("CantPasajeros", CantPas);
-                        postValues.put("NombreViaje", NombreViaje);
-                        postValues.put("LatDestino", LatD);
-                        postValues.put("LatOrigen", LatO);
-                        postValues.put("LongDestino", LongD);
-                        postValues.put("LongOrigen", LongO);
-                        postValues.put("UsuarioCreador", UC);
-                        postValues.put("Usuario1", U1);
-                        postValues.put("Usuario2", U2);
-                        postValues.put("Usuario3", U3);
-                        postValues.put("FechaViaje", FechaViaje);
-                        postValues.put("LlegoDestino", LlegoDest);
+                        cantPas++;
+                        postValues.put("CantPasajeros", cantPas);
+                        postValues.put("NombreViaje", nombreViaje);
+                        postValues.put("LatDestino", latD);
+                        postValues.put("LatOrigen", latO);
+                        postValues.put("LongDestino", longD);
+                        postValues.put("LongOrigen", longO);
+                        postValues.put("UsuarioCreador", userC);
+                        postValues.put("IDUsuarioCreador", idUserC);
+                        postValues.put("Usuario1", user1);
+                        postValues.put("IDUsuario1", idUser1);
+                        postValues.put("Usuario2", user2);
+                        postValues.put("IDUsuario2", idUser2);
+                        postValues.put("Usuario3", user3);
+                        postValues.put("IDUsuario3", idUser3);
+                        postValues.put("FechaViaje", fechaViaje);
+                        postValues.put("LlegoDestino", llegoDest);
 
                         Map<String, Object> childUpdates = new HashMap<>();
                         childUpdates.put("/Viaje/" + getIntent().getStringExtra("id"), postValues);
 
-                        String Key = MyRef.child("Usuarios").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("ViajesUnidos").push().getKey();
-                        childUpdates.put("/Usuarios/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/ViajesUnidos", new HashMap<String,Object>().put(Key, getIntent().getStringExtra("id")));
+                        String Key = myRef.child("Usuarios").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("ViajesUnidos").push().getKey();
 
-                        MyRef.updateChildren(childUpdates);
+                        HashMap<String,Object> H = new HashMap<String,Object>();
+                        H.put(getIntent().getStringExtra("id"), Key);
+
+                        childUpdates.put("/Usuarios/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/ViajesUnidos", H);
+
+                        myRef.updateChildren(childUpdates);
 
                     } else {
                         alertYaEnViaje();
@@ -156,41 +172,41 @@ public class ShowViaje extends DrawerNav {
             }
         });
 
-        Abandonar.setOnClickListener(new View.OnClickListener() {
+        abandonarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String UserActual = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
                 boolean del = false;
-                if (U1.equals(UserActual) || U2.equals(UserActual) || U3.equals(UserActual) || UC.equals(UserActual)) {
+                if (user1.equals(UserActual) || user2.equals(UserActual) || user3.equals(UserActual) || userC.equals(UserActual)) {
                     Map<String, Object> postValues = new HashMap<>();
 
-                    if (U1.equals(UserActual)) {
-                        U1 = "Lugar Disponible";
+                    if (user1.equals(UserActual)) {
+                        user1 = "Lugar Disponible";
                     } else {
-                        if (U2.equals(UserActual)) {
-                            U2 = "Lugar Disponible";
+                        if (user2.equals(UserActual)) {
+                            user2 = "Lugar Disponible";
                         } else {
-                            if (U3.equals(UserActual)) {
-                                U3 = "Lugar Disponible";
+                            if (user3.equals(UserActual)) {
+                                user3 = "Lugar Disponible";
                             } else {
-                                if (CantPas == 1) {
-                                    MyRef.child("Viaje").child(getIntent().getStringExtra("id")).removeValue();
+                                if (cantPas == 1) {
+                                    myRef.child("Viaje").child(getIntent().getStringExtra("id")).removeValue();
                                     del = true;
                                 } else {
-                                    switch (CantPas) {
+                                    switch (cantPas) {
                                         case 2: {
-                                            UC = U1;
-                                            U1 = "Lugar Disponible";
+                                            userC = user1;
+                                            user1 = "Lugar Disponible";
                                             break;
                                         }
                                         case 3: {
-                                            UC = U2;
-                                            U2 = "Lugar Disponible";
+                                            userC = user2;
+                                            user2 = "Lugar Disponible";
                                             break;
                                         }
                                         case 4: {
-                                            UC = U3;
-                                            U3 = "Lugar Disponible";
+                                            userC = user3;
+                                            user3 = "Lugar Disponible";
                                             break;
                                         }
                                     }
@@ -202,25 +218,25 @@ public class ShowViaje extends DrawerNav {
                         finish();
                     }
                     else {
-                        CantPas--;
+                        cantPas--;
 
-                        postValues.put("CantPasajeros", CantPas);
-                        postValues.put("NombreViaje", NombreViaje);
-                        postValues.put("LatDestino", LatD);
-                        postValues.put("LatOrigen", LatO);
-                        postValues.put("LongDestino", LongD);
-                        postValues.put("LongOrigen", LongO);
-                        postValues.put("UsuarioCreador", UC);
-                        postValues.put("Usuario1", U1);
-                        postValues.put("Usuario2", U2);
-                        postValues.put("Usuario3", U3);
-                        postValues.put("FechaViaje", FechaViaje);
-                        postValues.put("LlegoDestino", LlegoDest);
+                        postValues.put("CantPasajeros", cantPas);
+                        postValues.put("NombreViaje", nombreViaje);
+                        postValues.put("LatDestino", latD);
+                        postValues.put("LatOrigen", latO);
+                        postValues.put("LongDestino", longD);
+                        postValues.put("LongOrigen", longO);
+                        postValues.put("UsuarioCreador", userC);
+                        postValues.put("Usuario1", user1);
+                        postValues.put("Usuario2", user2);
+                        postValues.put("Usuario3", user3);
+                        postValues.put("FechaViaje", fechaViaje);
+                        postValues.put("LlegoDestino", llegoDest);
 
                         Map<String, Object> childUpdates = new HashMap<>();
                         childUpdates.put("/Viaje/" + getIntent().getStringExtra("id"), postValues);
 
-                        MyRef.updateChildren(childUpdates);
+                        myRef.updateChildren(childUpdates);
                     }
                 } else {
                     alertNoEstaEnViaje();

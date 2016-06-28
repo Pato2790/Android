@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imagenViaje" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/creador"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imagenViaje"
+        android:layout_toEndOf="@+id/imagenViaje"
+        android:textSize="26px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/desde"
+        android:layout_below="@+id/creador"
+        android:layout_toRightOf="@+id/imagenViaje"
+        android:layout_toEndOf="@+id/imagenViaje"
+        android:textSize="26px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/hasta"
+        android:layout_below="@+id/desde"
+        android:layout_toRightOf="@+id/imagenViaje"
+        android:layout_toEndOf="@+id/imagenViaje"
+        android:textSize="26px"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/cantPas"
+        android:layout_below="@+id/hasta"
+        android:layout_toRightOf="@+id/imagenViaje"
+        android:layout_toEndOf="@+id/imagenViaje"
+        android:textSize="26px"/>
+
+
+</RelativeLayout>

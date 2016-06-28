@@ -3,6 +3,7 @@ package com.example.pato.tacheando;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -10,12 +11,13 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,18 +34,18 @@ import java.util.Map;
 
 public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentInteractionListener, LocationListener {
 
-    private DatabaseReference DB = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference Viaje;
+    private DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference viaje;
     private FirebaseUser user;
 
-    public String LatOrigen = "";
-    public String LongOrigen = "";
-    private String LatDestino = "";
-    private String LongDestino = "";
+    public String latOrigen = "";
+    public String longOrigen = "";
+    private String latDestino = "";
+    private String longDestino = "";
 
-    private double Distancia = 0.004;
+    private double distancia = 0.004;
 
-    private TextView T1, T2, T3, T4;
+    //private TextView T1, T2, T3, T4;
 
     private LocationManager locationManager;
     private boolean networkOn;
@@ -53,7 +55,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
     private String userEmail;
     private Uri userPhotoUrl;
 
-    private ArrayList<DataSnapshot> AL;
+    private ArrayList<DataSnapshot> list;
 
 
 
@@ -61,6 +63,8 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        checkPermissions();
 
         //Para obtener Ubicacion
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -79,7 +83,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
 
         iniciarFragmentBusqueda();
 
-        Viaje = DB.child("Viaje");
+        viaje = dbRef.child("Viaje");
 
         user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -112,7 +116,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
 
         if (Direccion.trim().equals("") || Direccion == null) {
             alertDireccionInvalida();
-        } else if (LatOrigen.trim() == "" || LongOrigen.trim() == "") {
+        } else if (latOrigen.trim() == "" || longOrigen.trim() == "") {
             alertUbicacion();
         } else {
             obtLatLong(Direccion);
@@ -124,30 +128,30 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Viaje.orderByChild("LongDestino").startAt(Double.parseDouble(LongDestino) - Distancia).endAt(Double.parseDouble(LongDestino) + Distancia).addValueEventListener(new ValueEventListener() {
+                    viaje.orderByChild("LongDestino").startAt(Double.parseDouble(longDestino) - distancia).endAt(Double.parseDouble(longDestino) + distancia).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             Double LatD, LatO, LongO;
 
                             Iterable<DataSnapshot> IViajes = dataSnapshot.getChildren();
 
-                            AL = new ArrayList<DataSnapshot>();
+                            list = new ArrayList<DataSnapshot>();
 
                             for (DataSnapshot DS : IViajes) {
                                 LatD = DS.child("LatDestino").getValue(Double.class);
                                 LatO = DS.child("LatOrigen").getValue(Double.class);
                                 LongO = DS.child("LongOrigen").getValue(Double.class);
 
-                                if (Double.parseDouble(LatDestino) - Distancia < LatD && Double.parseDouble(LatDestino) + Distancia > LatD) {
-                                    if (Double.parseDouble(LatOrigen) - Distancia < LatO && Double.parseDouble(LatOrigen) + Distancia > LatO) {
-                                        if (Double.parseDouble(LongOrigen) - Distancia < LongO && Double.parseDouble(LongOrigen) + Distancia > LongO) {
-                                            AL.add(DS);
+                                if (Double.parseDouble(latDestino) - distancia < LatD && Double.parseDouble(latDestino) + distancia > LatD) {
+                                    if (Double.parseDouble(latOrigen) - distancia < LatO && Double.parseDouble(latOrigen) + distancia > LatO) {
+                                        if (Double.parseDouble(longOrigen) - distancia < LongO && Double.parseDouble(longOrigen) + distancia > LongO) {
+                                            list.add(DS);
                                         }
                                     }
                                 }
                             }
-                            SharedData.bus().post(new Viajes(AL));
-                            if (AL.size() == 0) {
+                            SharedData.bus().post(new Viajes(list));
+                            if (list.size() == 0) {
                                 alertNoHayViajes();
                             }
                         }
@@ -177,8 +181,8 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
             location.getLatitude();
             location.getLongitude();
 
-            LatDestino = "" + (location.getLatitude());
-            LongDestino = "" + (location.getLongitude());
+            latDestino = "" + (location.getLatitude());
+            longDestino = "" + (location.getLongitude());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -199,11 +203,11 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
             }
 
             if (lcGPS != null) {
-                LatOrigen = "" + lcGPS.getLatitude();
-                LongOrigen = "" + lcGPS.getLongitude();
+                latOrigen = "" + lcGPS.getLatitude();
+                longOrigen = "" + lcGPS.getLongitude();
             } else if (lcNETWORK != null){
-                LatOrigen = "" + lcNETWORK.getLatitude();
-                LongOrigen = "" + lcNETWORK.getLongitude();
+                latOrigen = "" + lcNETWORK.getLatitude();
+                longOrigen = "" + lcNETWORK.getLongitude();
             }
             else {
                 return false;
@@ -280,7 +284,7 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
             while(!getLocation());
             if(getLocation()) {
 //                Log.d("TAG", "Iniciar Frag3");
-                Fragment newFragment = FragmentBusqueda.newInstance(LongOrigen, LatOrigen);
+                Fragment newFragment = FragmentBusqueda.newInstance(longOrigen, latOrigen);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.add(R.id.FragmentBusq, newFragment).commitAllowingStateLoss();
             }
@@ -336,13 +340,33 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        String Key = DB.child("Viaje").push().getKey();
+                        /*String Key = dbRef.child("Viaje").push().getKey();
 
-                        Viaje V = new Viaje(Double.parseDouble(LatDestino), Double.parseDouble(LatOrigen), Double.parseDouble(LongDestino), Double.parseDouble(LongOrigen), "No", userName);
+                        Viaje V = new Viaje(Double.parseDouble(latDestino), Double.parseDouble(latOrigen), Double.parseDouble(longDestino), Double.parseDouble(longOrigen), "No", userName);
                         Map<String, Object> postValues = V.toMap();
                         Map<String, Object> childUpdates = new HashMap<>();
                         childUpdates.put("/Viaje/" + Key, postValues);
-                        DB.updateChildren(childUpdates);
+                        dbRef.updateChildren(childUpdates);
+
+                        Intent SV = new Intent(Main.this, ShowViaje.class);
+                        SV.putExtra("id", Key);
+                        startActivity(SV);*/
+
+                        String Key = dbRef.child("Viaje").push().getKey();
+
+                        Viaje v = new Viaje(Double.parseDouble(latDestino), Double.parseDouble(latOrigen), Double.parseDouble(longDestino), Double.parseDouble(longOrigen), "No", userName, FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        Map<String, Object> postValues = v.toMap();
+                        Map<String, Object> childUpdates = new HashMap<>();
+                        childUpdates.put("/Viaje/" + Key, postValues);
+
+                        String Key2 = dbRef.child("Usuarios").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("ViajesCreados").push().getKey();
+
+                        HashMap<String,Object> H = new HashMap<String,Object>();
+                        H.put(Key,Key2);
+
+                        childUpdates.put("/Usuarios/" + FirebaseAuth.getInstance().getCurrentUser().getUid() + "/ViajesCreados", H);
+
+                        dbRef.updateChildren(childUpdates);
 
                         Intent SV = new Intent(Main.this, ShowViaje.class);
                         SV.putExtra("id", Key);
@@ -365,12 +389,36 @@ public class Main extends DrawerNav implements FragmentBusqueda.OnFragmentIntera
                 InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-    public class Viajes {
-        public ArrayList<DataSnapshot> viajes;
+    protected void checkPermissions() {
+        if (ContextCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
 
-        public Viajes(ArrayList<DataSnapshot> v) {
-            viajes = v;
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    1);
+
         }
-
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+
+                } else {
+
+                }
+                return;
+            }
+
+        }
+    }
+
 }

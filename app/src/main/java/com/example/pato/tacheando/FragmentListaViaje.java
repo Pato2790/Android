@@ -39,7 +39,7 @@ public class FragmentListaViaje extends Fragment {
     }
 
     @Subscribe
-    public void setIterable(Main.Viajes v) {
+    public void setIterable(Viajes v) {
         Viajes = v.viajes;
         Listar();
     }
