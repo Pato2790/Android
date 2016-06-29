@@ -1,7 +1,9 @@
-package com.example.pato.tacheando;
+package com.example.pato.tacheando.Activities;
 
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.pato.tacheando.R;
 
 public class BaseActivity extends AppCompatActivity {
 

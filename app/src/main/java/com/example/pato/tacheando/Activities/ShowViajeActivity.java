@@ -1,4 +1,4 @@
-package com.example.pato.tacheando;
+package com.example.pato.tacheando.Activities;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pato.tacheando.Classes.Ubicacion;
+import com.example.pato.tacheando.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

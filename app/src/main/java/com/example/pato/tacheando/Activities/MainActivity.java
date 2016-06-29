@@ -1,4 +1,4 @@
-package com.example.pato.tacheando;
+package com.example.pato.tacheando.Activities;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,6 +19,12 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 
+import com.example.pato.tacheando.Fragments.BusquedaFragment;
+import com.example.pato.tacheando.Classes.SharedData;
+import com.example.pato.tacheando.Classes.Viaje;
+import com.example.pato.tacheando.Classes.Viajes;
+import com.example.pato.tacheando.Fragments.ListaViajeFragment;
+import com.example.pato.tacheando.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

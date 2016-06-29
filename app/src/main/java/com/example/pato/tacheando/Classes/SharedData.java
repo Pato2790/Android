@@ -1,5 +1,4 @@
-package com.example.pato.tacheando;
-
+package com.example.pato.tacheando.Classes;
 import com.squareup.otto.Bus;
 
 public class SharedData {

@@ -1,4 +1,4 @@
-package com.example.pato.tacheando;
+package com.example.pato.tacheando.Activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pato.tacheando.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;

@@ -1,5 +1,4 @@
-package com.example.pato.tacheando;
-
+package com.example.pato.tacheando.Classes;
 import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;

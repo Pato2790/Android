@@ -1,4 +1,4 @@
-package com.example.pato.tacheando;
+package com.example.pato.tacheando.Activities;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -7,6 +7,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 
+import com.example.pato.tacheando.Classes.SharedData;
+import com.example.pato.tacheando.Classes.Viajes;
+import com.example.pato.tacheando.Fragments.ListaViajeFragment;
+import com.example.pato.tacheando.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

@@ -1,4 +1,4 @@
-package com.example.pato.tacheando;
+package com.example.pato.tacheando.Fragments;
 
 
 import android.app.Activity;
@@ -15,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.pato.tacheando.Activities.ShowViajeActivity;
+import com.example.pato.tacheando.Classes.SharedData;
+import com.example.pato.tacheando.Classes.Ubicacion;
+import com.example.pato.tacheando.Classes.Viajes;
+import com.example.pato.tacheando.R;
 import com.google.firebase.database.DataSnapshot;
 import com.squareup.otto.Subscribe;
 

@@ -1,5 +1,4 @@
-package com.example.pato.tacheando;
-
+package com.example.pato.tacheando.Classes;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 

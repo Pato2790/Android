@@ -1,4 +1,4 @@
-package com.example.pato.tacheando;
+package com.example.pato.tacheando.Classes;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.style.CharacterStyle;

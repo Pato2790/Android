@@ -1,5 +1,4 @@
-package com.example.pato.tacheando;
-
+package com.example.pato.tacheando.Classes;
 import com.google.firebase.database.DataSnapshot;
 
 import java.util.ArrayList;
