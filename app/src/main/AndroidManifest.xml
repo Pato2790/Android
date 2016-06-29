@@ -10,7 +10,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/viaje"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -23,21 +23,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main"
+        <activity android:name=".MainActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"/>
         <activity android:name=".BaseActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"/>
-        <activity android:name=".ShowViaje"
+        <activity android:name=".ShowViajeActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden"/>
-
+        <activity android:name=".MisViajesActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyB1dV0C9D4r0B90f-kEmqJfe8WXq1JdbUo" />
 
-        <activity android:name=".MisViajesActivity"></activity>
     </application>
 
 </manifest>
